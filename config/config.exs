@@ -10,6 +10,10 @@ use Mix.Config
 config :busi_api,
   ecto_repos: [BusiApi.Repo]
 
+config :busi_api, BusiApiWeb.Auth.Guardian,
+  issuer: "busi_api",
+  secret_key: "KfcDb+XEkeOZt3ljBuCGv0NJSh6xQurGpZLdPhjvdY2D8z4hDvHnzmXI4EQlnqwq"
+
 # Configures the endpoint
 config :busi_api, BusiApiWeb.Endpoint,
   url: [host: "localhost"],

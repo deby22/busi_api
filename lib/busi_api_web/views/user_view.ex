@@ -10,7 +10,10 @@ defmodule BusiApiWeb.UserView do
     %{data: render_one(user, UserView, "user.json")}
   end
 
-  def render("user.json", %{user: user}) do
-    %{id: user.id, email: user.email, encrypted_password: user.encrypted_password}
+  def render("user.json", %{user: user, token: token}) do
+    %{
+      email: user.email,
+      token: token
+    }
   end
 end
