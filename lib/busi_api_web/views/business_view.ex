@@ -11,6 +11,12 @@ defmodule BusiApiWeb.BusinessView do
   end
 
   def render("business.json", %{business: business}) do
-    %{id: business.id, name: business.name, description: business.description, tag: business.tag}
+    %{
+      id: business.id,
+      name: business.name,
+      description: business.description,
+      tag: business.tag,
+      date: NaiveDateTime.to_string(business.inserted_at)
+    }
   end
 end
