@@ -9,6 +9,10 @@ defmodule BusiApiWeb.Router do
     pipe_through :api
   end
 
+  pipeline :auth do
+    plug BusiApiWeb.Auth.Pipeline
+  end
+
   pipeline :browser do
     plug(:accepts, ["html"])
   end
@@ -20,11 +24,14 @@ defmodule BusiApiWeb.Router do
 
   scope "/api", BusiApiWeb do
     pipe_through :api
-    resources "/businesses", BusinessController, except: [:new, :edit]
     post "/users/signup", UserController, :create
     post "/users/signin", UserController, :signin
   end
 
+  scope "/api", BusiApiWeb do
+    pipe_through [:api, :auth]
+    resources "/businesses", BusinessController, except: [:new, :edit]
+  end
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
