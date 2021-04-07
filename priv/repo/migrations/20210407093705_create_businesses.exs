@@ -9,6 +9,5 @@ defmodule BusiApi.Repo.Migrations.CreateBusinesses do
 
       timestamps()
     end
-
   end
 end

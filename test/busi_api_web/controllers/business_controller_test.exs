@@ -56,7 +56,10 @@ defmodule BusiApiWeb.BusinessControllerTest do
   describe "update business" do
     setup [:create_business]
 
-    test "renders business when data is valid", %{conn: conn, business: %Business{id: id} = business} do
+    test "renders business when data is valid", %{
+      conn: conn,
+      business: %Business{id: id} = business
+    } do
       conn = put(conn, Routes.business_path(conn, :update, business), business: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 

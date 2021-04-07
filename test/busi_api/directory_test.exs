@@ -7,7 +7,11 @@ defmodule BusiApi.DirectoryTest do
     alias BusiApi.Directory.Business
 
     @valid_attrs %{description: "some description", name: "some name", tag: "some tag"}
-    @update_attrs %{description: "some updated description", name: "some updated name", tag: "some updated tag"}
+    @update_attrs %{
+      description: "some updated description",
+      name: "some updated name",
+      tag: "some updated tag"
+    }
     @invalid_attrs %{description: nil, name: nil, tag: nil}
 
     def business_fixture(attrs \\ %{}) do
